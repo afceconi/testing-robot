@@ -16,6 +16,7 @@ Quick Start
 ### Run docker with shared volume.
 
     docker run -ti -v <PROJECT-PATH>:/usr/src/testing-robot robot-docker bash
+##### IMPORTANT! Make sure that your project directory is configured on docker settings as shared file
 
 ### Run tests
 
@@ -36,19 +37,18 @@ In case of you want to run tests inside your prefered IDE without docker, you wi
 
 ### Install Phyton
 
-		Download on www.python.org./downloads/ and install (check option Add Phyton to environment variables)
+    Download on www.python.org./downloads/ and install (check option Add Phyton to environment variables)
 
 ### Run following commands: 
 
-		python -m pip install --upgrade pip
-		pip install robotframework-seleniumlibrary
+    python -m pip install --upgrade pip
+    pip install robotframework-seleniumlibrary
 		
 ### Download webdrivers:
 
-		Go to https://github.com/mozilla/geckodriver/releases to download firefox webdriver
-		Go to https://sites.google.com/a/chromium.org/chromedriver/ to download chrome webdriver
-		
-		Make sure webdrivers are avaiable at PATH
+    Go to https://github.com/mozilla/geckodriver/releases to download firefox webdriver
+    Go to https://sites.google.com/a/chromium.org/chromedriver/ to download chrome webdriver	
+   ##### Make sure webdrivers are avaiable at PATH
 
 #### For more information
 
