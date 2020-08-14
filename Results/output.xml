@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.6.5 on win32)" generated="20200814 01:22:59.608" rpa="false">
+<suite id="s1" name="Americanas-Win" source="C:\projetos\robot-scripts\americanas\Tests\Americanas-Win.robot">
+<test id="s1-t1" name="T0: Logged out user can search product, add product to cart and remove product from cart">
+<kw name="Start Test Web" library="Common-WEB-Win" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200814 01:22:59.796" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20200814 01:22:59.796" endtime="20200814 01:23:02.058"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200814 01:23:02.058" endtime="20200814 01:23:03.183"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:22:59.794" endtime="20200814 01:23:03.184"></status>
+</kw>
+<kw name="Simple Integrated Test" library="Americanas">
+<kw name="user is not logged in" library="Americanas-WEB">
+<kw name="Load" library="Home">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${START_URL}</arg>
+</arguments>
+<msg timestamp="20200814 01:23:03.190" level="INFO">Opening url 'https://www.americanas.com.br'</msg>
+<status status="PASS" starttime="20200814 01:23:03.190" endtime="20200814 01:23:11.682"></status>
+</kw>
+<kw name="Verify page loaded" library="Home">
+<kw name="Get Title" library="SeleniumLibrary">
+<doc>Returns the title of the current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20200814 01:23:11.796" level="INFO">${title} = Americanas - Tudo. A toda hora. Em qualquer lugar.</msg>
+<status status="PASS" starttime="20200814 01:23:11.685" endtime="20200814 01:23:11.797"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${title}</arg>
+<arg>Americanas - Tudo. A toda hora. Em qualquer lugar.</arg>
+</arguments>
+<status status="PASS" starttime="20200814 01:23:11.798" endtime="20200814 01:23:11.801"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200814 01:23:12.289" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200814 01:23:11.802" endtime="20200814 01:23:12.290"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:11.683" endtime="20200814 01:23:12.290"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:03.189" endtime="20200814 01:23:12.290"></status>
+</kw>
+<kw name="Verify user not logged in" library="Home">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>olá, faça seu login</arg>
+</arguments>
+<msg timestamp="20200814 01:23:12.324" level="INFO">Current page contains text 'olá, faça seu login'.</msg>
+<status status="PASS" starttime="20200814 01:23:12.291" endtime="20200814 01:23:12.325"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:12.290" endtime="20200814 01:23:12.325"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:03.187" endtime="20200814 01:23:12.325"></status>
+</kw>
+<kw name="user searches for product" library="Americanas-WEB">
+<arguments>
+<arg>${SEARCH_TERM}</arg>
+</arguments>
+<kw name="Search for product" library="TopNav">
+<arguments>
+<arg>${PRODUCT_TERM}</arg>
+</arguments>
+<kw name="Enter search term" library="TopNav">
+<arguments>
+<arg>${product_term}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${product_term}</arg>
+</arguments>
+<msg timestamp="20200814 01:23:12.326" level="INFO">Typing text 'Smart TV 40" Philco' into text field 'id=h_search-input'.</msg>
+<status status="PASS" starttime="20200814 01:23:12.326" endtime="20200814 01:23:12.487"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200814 01:23:12.959" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200814 01:23:12.488" endtime="20200814 01:23:12.960"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:12.326" endtime="20200814 01:23:12.960"></status>
+</kw>
+<kw name="Submit search" library="TopNav">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${SEARCH_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200814 01:23:12.960" level="INFO">Clicking button 'id=h_search-btn'.</msg>
+<status status="PASS" starttime="20200814 01:23:12.960" endtime="20200814 01:23:14.908"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:12.960" endtime="20200814 01:23:14.908"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:12.325" endtime="20200814 01:23:14.908"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:12.325" endtime="20200814 01:23:14.908"></status>
+</kw>
+<kw name="search results contains relevant products" library="Americanas-WEB">
+<kw name="Select right category" library="SearchResults">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${CATEGORY}</arg>
+</arguments>
+<status status="PASS" starttime="20200814 01:23:14.908" endtime="20200814 01:23:15.110"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${CATEGORY}</arg>
+</arguments>
+<msg timestamp="20200814 01:23:15.321" level="INFO">Current page contains element 'xpath=//a/span[contains(text(), 'Smart Tv')]'.</msg>
+<status status="PASS" starttime="20200814 01:23:15.111" endtime="20200814 01:23:15.321"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${CATEGORY}</arg>
+</arguments>
+<msg timestamp="20200814 01:23:15.322" level="INFO">Clicking element 'xpath=//a/span[contains(text(), 'Smart Tv')]'.</msg>
+<status status="PASS" starttime="20200814 01:23:15.321" endtime="20200814 01:23:17.086"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:14.908" endtime="20200814 01:23:17.086"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:14.908" endtime="20200814 01:23:17.087"></status>
+</kw>
+<kw name="user selects the product" library="Americanas-WEB">
+<kw name="Click product link" library="SearchResults">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,200)</arg>
+</arguments>
+<msg timestamp="20200814 01:23:17.089" level="INFO">Executing JavaScript:
+window.scrollTo(0,200)
+Without any arguments.</msg>
+<status status="PASS" starttime="20200814 01:23:17.088" endtime="20200814 01:23:17.479"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${LOADING}</arg>
+</arguments>
+<status status="PASS" starttime="20200814 01:23:17.479" endtime="20200814 01:23:17.809"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SECOND_PRODUCT}</arg>
+</arguments>
+<status status="PASS" starttime="20200814 01:23:17.810" endtime="20200814 01:23:18.076"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${SECOND_PRODUCT}</arg>
+</arguments>
+<msg timestamp="20200814 01:23:18.076" level="INFO">Clicking link 'xpath=(//div[starts-with(@class, 'product-grid-item')][2])//a'.</msg>
+<status status="PASS" starttime="20200814 01:23:18.076" endtime="20200814 01:23:21.072"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200814 01:23:22.095" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200814 01:23:21.072" endtime="20200814 01:23:22.096"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:17.087" endtime="20200814 01:23:22.096"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:17.087" endtime="20200814 01:23:22.096"></status>
+</kw>
+<kw name="product page loads" library="Americanas-WEB">
+<kw name="Verify page loaded" library="Product">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Informações do produto</arg>
+</arguments>
+<msg timestamp="20200814 01:23:22.512" level="INFO">Current page contains text 'Informações do produto'.</msg>
+<status status="PASS" starttime="20200814 01:23:22.099" endtime="20200814 01:23:22.513"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200814 01:23:22.949" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200814 01:23:22.513" endtime="20200814 01:23:22.949"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:22.098" endtime="20200814 01:23:22.949"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:22.097" endtime="20200814 01:23:22.950"></status>
+</kw>
+<kw name="user adds that product to their cart" library="Americanas-WEB">
+<kw name="Add to cart" library="Product">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,550)</arg>
+</arguments>
+<msg timestamp="20200814 01:23:22.953" level="INFO">Executing JavaScript:
+window.scrollTo(0,550)
+Without any arguments.</msg>
+<status status="PASS" starttime="20200814 01:23:22.951" endtime="20200814 01:23:22.967"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${BUY_BUTTON}</arg>
+</arguments>
+<msg timestamp="20200814 01:23:22.967" level="INFO">Clicking element 'xpath=//*[@id='btn-buy']'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200814 01:23:24.666" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200814 01:23:24.275" endtime="20200814 01:23:24.666"></status>
+</kw>
+<msg timestamp="20200814 01:23:24.669" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a href="/garantia/1508411046?buyboxField=&amp;amp;buyboxToken=smartbuybox-acom-v2-ba807888-b5d2-4604-b3dd-dd4f7de8a9ce&amp;amp;condition=NEW&amp;amp;offerId=5e84f47079bf8430cbbfa8e6&amp;amp;offerType=&amp;amp;pricingId=5f35f46d11fc6b0016033d07&amp;amp;productId=1508411046&amp;amp;productSku=1508411169&amp;amp;sellerId=00776574000660" id="btn-buy" value="comprar" class="TouchableUI-sc-1i9za0i-6 klvhBE TouchableA-p6nnfn-0 joVuoc"&gt;...&lt;/a&gt; is not clickable at point (1124, 416). Other element would receive the click: &lt;div spacing="xs" class="GridUI-wcbvwm-0 gZNans ViewUI-sc-1ijittn-6 iXIDWU"&gt;...&lt;/div&gt;
+  (Session info: chrome=84.0.4147.125)
+</msg>
+<status status="FAIL" starttime="20200814 01:23:22.967" endtime="20200814 01:23:24.669"></status>
+</kw>
+<status status="FAIL" starttime="20200814 01:23:22.950" endtime="20200814 01:23:24.669"></status>
+</kw>
+<status status="FAIL" starttime="20200814 01:23:22.950" endtime="20200814 01:23:24.669"></status>
+</kw>
+<status status="FAIL" starttime="20200814 01:23:03.186" endtime="20200814 01:23:24.670"></status>
+</kw>
+<kw name="Stop Test Web" library="Common-WEB-Win" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200814 01:23:24.671" endtime="20200814 01:23:26.864"></status>
+</kw>
+<status status="PASS" starttime="20200814 01:23:24.670" endtime="20200814 01:23:26.865"></status>
+</kw>
+<tags>
+<tag>E2ETest</tag>
+</tags>
+<status status="FAIL" starttime="20200814 01:22:59.794" endtime="20200814 01:23:26.866" critical="yes">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a href="/garantia/1508411046?buyboxField=&amp;amp;buyboxToken=smartbuybox-acom-v2-ba807888-b5d2-4604-b3dd-dd4f7de8a9ce&amp;amp;condition=NEW&amp;amp;offerId=5e84f47079bf8430cbbfa8e6&amp;amp;offerType=&amp;amp;pricingId=5f35f46d11fc6b0016033d07&amp;amp;productId=1508411046&amp;amp;productSku=1508411169&amp;amp;sellerId=00776574000660" id="btn-buy" value="comprar" class="TouchableUI-sc-1i9za0i-6 klvhBE TouchableA-p6nnfn-0 joVuoc"&gt;...&lt;/a&gt; is not clickable at point (1124, 416). Other element would receive the click: &lt;div spacing="xs" class="GridUI-wcbvwm-0 gZNans ViewUI-sc-1ijittn-6 iXIDWU"&gt;...&lt;/div&gt;
+  (Session info: chrome=84.0.4147.125)
+</status>
+</test>
+<doc>This test suite validates the actions of search, add and remove product. Configured to run on Windows.</doc>
+<status status="FAIL" starttime="20200814 01:22:59.609" endtime="20200814 01:23:26.880"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1">E2ETest</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Americanas-Win">Americanas-Win</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
