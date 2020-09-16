@@ -58,10 +58,10 @@ In case of you want to run tests inside your prefered IDE without docker, you wi
 
 ##### Method 1: run a simple integrated test
   
-    cd /usr/src/testing-robot/Tests
-    robot -d /usr/src/testing-robot/Result -i E2ETest Americanas-Win.robot
+    cd <project path>
+    robot -d Result -i E2ETest Tests/Americanas-Win.robot
 
 ##### Method 2: run a full test step by step
 
-    cd /usr/src/testing-robot/Tests
-    robot -d /usr/src/testing-robot/Result -e E2ETest Americanas-Win.robot
+    cd <project path>
+    robot -d Result -e E2ETest Americanas-Win.robot
